@@ -1,0 +1,29 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+
+using namespace std;
+
+int main() {
+    string filename = "example.txt";
+    string data;
+
+    // Writing to the file
+    ofstream outFile(filename);
+    outFile << "This is the first line of data.\n";
+    outFile.close();
+
+    // Appending to the file
+    outFile.open(filename, ios::app);
+    outFile << "This is an appended line of data.\n";
+    outFile.close();
+
+    // Reading from the file
+    ifstream inFile(filename);
+    while (getline(inFile, data)) {
+        cout << data << endl;
+    }
+    inFile.close();
+
+    return 0;
+}
